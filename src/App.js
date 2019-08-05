@@ -4,15 +4,28 @@ import Header from './components/Header';
 import Filter from './components/Filter';
 import List from './components/List'
 
-function App() {
+class App extends React.Component {
   
-  return (
-    <div className="App">
-      <Header />
-      <Filter />
-      <List />
-    </div>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: [],
+     };
+  }  
+
+  updateList = (list) => {
+    this.setState({list})
+  }
+
+  render() { 
+    return (
+      <div className="App">
+        <Header />
+        <Filter updateList={this.updateList}/>
+        <List books={this.state.list}/>
+      </div>
+    );
+  }
 }
 
 export default App;
