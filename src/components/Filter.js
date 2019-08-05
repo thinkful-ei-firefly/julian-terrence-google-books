@@ -2,20 +2,20 @@ import React, { Component } from  'react';
 
 
 
+
 class Filter extends Component {
 
   handleSubmit (e) {
-    e.preventDefault();
+    e.preventDefault();      
    
-    let url = new URL('https://www.googleapis.com/books/v1/volumes');
+     let q = e.target['search'].value;
+     let printType = e.target['print-type'].value;
+     let filter = e.target['book-type'].value;
+     let key = 'AIzaSyBSNY2MPVpTYgFp-kS-tmfykXMoYrij0O4'
 
-    let params = {
-      q: e.target['search'].value,
-      filter: e.target['print-type'].value,
-      printType: e.target['book-type'].value,
-      key: 'AIzaSyBSNY2MPVpTYgFp-kS-tmfykXMoYrij0O4'
-    }
-    url.search = new URLSearchParams(params);
+     let url =`https://www.googleapis.com/books/v1/volumes?q=${q}&${filter}&${printType}&key=${key}`;
+    
+    
 
     fetch(url)
     .then(res => {
