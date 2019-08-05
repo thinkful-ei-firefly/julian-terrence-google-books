@@ -1,7 +1,15 @@
 import React, { Component } from  'react';
 
 
+
 class Filter extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      List: [],
+     };
+  }
   render() {
     return (
       <div className="filter">
@@ -12,19 +20,19 @@ class Filter extends Component {
           <button type='submit'>Search</button>
           <label>Print Type:</label>
           <select id="print-type">
-            <option value = '1'>All</option>
-            <option value = '2'>Books</option>
-            <option value = '3'>Magazines</option>
+            <option value = 'All'>All</option>
+            <option value = 'Books'>Books</option>
+            <option value = 'Magazines'>Magazines</option>
           </select>
           <label>Book Type:</label>
-          <select id="print-type">
-            <option value = '1'>Partial</option>
-            <option value = '2'>Full</option>
-            <option value = '3'>Free-Ebooks</option>
-            <option value = '4'>Paid-Ebooks</option>
-            <option value = '5'>Ebooks</option>
+          <select id="book-type">
+            <option value = 'Partial'>Partial</option>
+            <option value = 'Full'>Full</option>
+            <option value = 'Free-Ebooks'>Free-Ebooks</option>
+            <option value = 'Paid-Ebooks'>Paid-Ebooks</option>
+            <option value = 'Ebooks'>Ebooks</option>
           </select>
-        </form>
+        </form>      
       </div>
     );
   }
